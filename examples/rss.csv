@@ -1,0 +1,15 @@
+UID,Phase,Task Name,Duration (days),Deliverable,Depends On
+Skills,Skill Implementation,Develop and Test Robot Skills,9,Robot Skills Implemented,
+Theory,Method Development,Formalize Theory,7,Theoretical Framework Formalized,
+Method,Method Development,Implement Method,7,Method Fully Implemented,Theory
+Exp Plan,Experiments and Results,Experiments Designed,3,Experiment Plan Written,Theory
+Results,Experiments and Results,Run Experiments and Collect Data,28,Complete Experimental Results,Skills;Exp Plan;Method
+Write A,Paper Writing,Abstract/Introduction/Prior Work,7,First Sections of the Paper Written,
+Write B,Paper Writing,Method and Theory,5,Method Section Written,Theory
+Write C,Paper Writing,Experiments and Results,5,Results Section Written,Results
+Full Draft,Paper Writing,Full Paper Written,3,Full Draft Ready for Feedback,Write A;Write B;Write C
+Feedback,Review and Revisions,Feedback from Advisors/Peers,7,Feedback Received,Full Draft
+Revise,Review and Revisions,Address Reviewer Feedback,5,Paper Revised per Feedback,Feedback
+Internal,Submission,Internal Paper Deadline (1/11/25),1,,Revise
+RSS Abs,Submission,RSS Abstract Deadline (1/17/25),6,,Internal
+RSS Full,Submission,RSS Paper/Demo Deadline (1/24/25),7,,RSS Abs

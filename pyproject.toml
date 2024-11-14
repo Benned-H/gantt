@@ -1,0 +1,64 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "gantt-py"
+dynamic = ["version"]
+description = "Python scripts for generating and visualizing Gantt charts and critical paths"
+readme = "README.md"
+requires-python = ">=3.8"
+license = "MIT"
+keywords = []
+dependencies = ["networkx", "pandas", "plotly", "matplotlib"]
+
+[project.urls]
+Documentation = "https://github.com/Benned-H/gantt-py#readme"
+Issues = "https://github.com/Benned-H/gantt-py/issues"
+Source = "https://github.com/Benned-H/gantt-py"
+
+[tool.hatch.version]
+path = "src/gantt_py/__about__.py"
+
+[tool.hatch.envs.types]
+extra-dependencies = ["mypy>=1.0.0"]
+
+[tool.hatch.envs.types.scripts]
+check = "mypy --install-types --non-interactive {args:src/gantt_py tests}"
+
+[tool.hatch.envs.test]
+dependencies = ["pytest", "coverage"]
+
+[tool.pytest.ini_options]
+minversion = "6.0"    # Minimum version of Pytest to use pyproject.toml
+testpaths = ["tests"]
+
+[tool.coverage.run]
+source_pkgs = ["gantt_py", "tests"]
+branch = true                        # Measure branch coverage
+parallel = true
+omit = ["src/gantt_py/__about__.py"]
+
+[tool.coverage.paths]
+gantt_py = ["src/gantt_py", "*/gantt-py/src/gantt_py"]
+tests = ["tests", "*/gantt-py/tests"]
+
+[tool.coverage.report]
+exclude_lines = ["no cov", "if __name__ == .__main__.:", "if TYPE_CHECKING:"]
+
+[tool.ruff] # Use the same settings as Black
+line-length = 88
+indent-width = 4
+
+[tool.ruff.lint]
+# Default to all Ruff rules, ignores to be added as necessary
+select = ["ALL"]
+ignore = ["ANN101", "ANN204"] # Ignore type annotations on `self` and __init__
+unfixable = ["F401"]          # Disable 'fix' for unused imports
+
+[tool.ruff.lint.per-file-ignores]
+"**/tests/*" = ["S101"] # Ignore assertions in test files
+
+[tool.ruff.format] # Use the same settings as Black
+quote-style = "double"
+indent-style = "space"
